@@ -2,25 +2,25 @@ drop database db;
 create database db;
 
 create table customers (
-  id	integer primary key,
+  id	serial primary key,
   name	varchar(64),
   email	varchar(128)
 );
 
 create table products (
-  id	integer primary key,
+  id	serial primary key,
   title	varchar(256),
   price	money
 );
 
 create table order_products (
-  id		integer,
+  order_id	integer references orders(id),
   product_id	integer references products(id),
-  quantity	integer
+  quantity	integer,
+  primary key	(order_id, product_id)
 );
 
 create table orders (
-  id		integer primary key,
+  id		serial primary key,
   customer_id	integer references customer(id),
-  products_id	integer references order_products(id)
 );
