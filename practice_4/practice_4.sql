@@ -6,12 +6,12 @@ create database db;
 create table customers (
   id	serial primary key,
   name	varchar(64),
-  email	varchar(128)
+  email	varchar(64)
 );
 
 create table products (
   id	serial primary key,
-  title	varchar(256),
+  title	varchar(64),
   price	money
 );
 
