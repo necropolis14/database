@@ -1,7 +1,7 @@
 drop database db;
 create database db;
 
-\c db;
+\c db
 
 create table students (
   id	serial primary key,
