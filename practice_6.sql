@@ -17,8 +17,8 @@ create table courses (
 );
 
 create table enrollments (
-  student_id	int references students(id),
-  course_id	int references courses(id),
+  student_id	int references students(id) on delete cascade,
+  course_id	int references courses(id) on delete cascade,
   grade		varchar(1),
   primary key	(student_id, course_id)
 );
@@ -41,5 +41,7 @@ insert into enrollments values (3, 3);
 
 update students    set email = 'elena.kuznetsova@newmail.com' where id = 2;
 update enrollments set grade = 'A' where student_id = 3 and course_id = 1;
+
+delete from students where id = 4;
 
 \c postgres
