@@ -1,6 +1,8 @@
 drop database db;
 create database db;
 
+\c db;
+
 create table authors (
   id	serial primary key,
   name	varchar(128)
