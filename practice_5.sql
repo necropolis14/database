@@ -24,3 +24,5 @@ create table book_authors (
   author_id	int references authors(id),
   primary key	(book_id, author_id)
 );
+
+\c postgres

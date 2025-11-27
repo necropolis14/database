@@ -26,3 +26,5 @@ create table orders (
   id		serial primary key,
   customer_id	integer references customer(id),
 );
+
+\c postgres
