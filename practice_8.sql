@@ -5,16 +5,16 @@ create database db;
 
 create table customers (
   id			serial primary key,
-  name			varchar(128),
-  email			varchar(128) unique,
+  name			varchar(64),
+  email			varchar(64) unique,
   registration_date	date,
   recommended_by	int references customers(id)
 );
 
 create table products (
   id		serial primary key,
-  title		varchar(128),
-  category	varchar(128),
+  title		varchar(64),
+  category	varchar(64),
   price 	money
 );
 
@@ -22,7 +22,7 @@ create table orders (
   id		serial primary key,
   customer_id	int references customers(id),
   order_date	date,
-  status	varchar(20)
+  status	varchar(64)
 );
 
 create table order_items (
@@ -34,8 +34,7 @@ create table order_items (
 );
 
 insert into customers
-  (name,              email,                       registration_date, recommended_by)
-values
+  (name,              email,                       registration_date, recommended_by) values
   ('Иван Иванов',     'ivan.ivanov@example.com',   '2023-01-15',      NULL),
   ('Мария Петрова',   'maria.petrova@example.com', '2023-02-20',      1),
   ('Алексей Смирнов', 'alex.smirnov@example.com',  '2023-03-10',      1),
@@ -43,8 +42,7 @@ values
   ('Андрей Николаев', 'andrey.n@example.com',      '2023-05-01',      NULL);
 
 insert into products
-  (title,                category,          price)
-values
+  (title,                category,          price) values
   ('Смартфон',           'Электроника',     70000.00),
   ('Ноутбук',            'Электроника',     120000.00),
   ('Кофемашина',         'Бытовая техника', 25000.00),
@@ -53,21 +51,21 @@ values
   ('Пылесос',            'Бытовая техника', 15000.00);
 
 insert into orders
-  (customer_id, order_date,   status)
-values
+  (customer_id, order_date,   status) values
   (1,           '2024-05-10', 'Доставлен'),
   (2,           '2024-05-12', 'В обработке'),
   (1,           '2024-05-15', 'Отправлен'),
   (3,           '2024-05-16', 'Доставлен');
 
 insert into order_items
-  (order_id, product_id, quantity, price_per_unit)
-values
+  (order_id, product_id, quantity, price_per_unit) values
   (1,        1,          1,        70000.00),
   (1,        4,          2,        1400.00),
   (2,        2,          1,        120000.00),
   (3,        3,          1,        25000.00),
   (4,        1,          1,        70000.00),
   (4,        5,          1,        4500.00);
+
+-- select name order_date from customers c join orders o on c.id = o.customer_id
 
 \c postgres

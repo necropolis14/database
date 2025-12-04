@@ -32,8 +32,7 @@ values
   ('Ольга Морозова',  'olgamorozova@mail.ru',   2023);
 
 insert into courses
-  (name,                          credits)
-values
+  (name,                          credits) values
   ('Введение в программирование', 5), 
   ('Базы данных',                 4), 
   ('Веб-технологии',              4);
