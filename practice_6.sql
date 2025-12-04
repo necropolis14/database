@@ -24,7 +24,7 @@ create table enrollments (
 );
 
 insert into students
-  (name, email, year)
+  (name,              email,                    year)
 values
   ('Алексей Смирнов', 'alekseysmirnov@mail.ru', 2021),
   ('Елена Кузнецова', 'elenakuznecova@mail.ru', 2022),
@@ -32,7 +32,7 @@ values
   ('Ольга Морозова',  'olgamorozova@mail.ru',   2023);
 
 insert into courses
-  (name, credits)
+  (name,                          credits)
 values
   ('Введение в программирование', 5), 
   ('Базы данных',                 4), 
