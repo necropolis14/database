@@ -1,30 +1,30 @@
-drop database db;
-create database db;
+DROP DATABASE db;
+CREATE DATABASE db;
 
 \c db
 
-create table customers (
-  id	serial primary key,
-  name	varchar(64),
-  email	varchar(64)
+CREATE TABLE customers (
+	id	SERIAL PRIMARY KEY,
+	name	VARCHAR(64),
+	email	VARCHAR(64)
 );
 
-create table products (
-  id	serial primary key,
-  title	varchar(64),
-  price	money
+CREATE TABLE products (
+	id	SERIAL PRIMARY KEY,
+	title	VARCHAR(64),
+	price	MONEY
 );
 
-create table order_products (
-  order_id	integer references orders(id),
-  product_id	integer references products(id),
-  quantity	integer,
-  primary key	(order_id, product_id)
+CREATE TABLE order_products (
+	order_id	INT REFERENCES orders(id),
+	product_id	INT REFERENCES products(id),
+	quantity	INT,
+	PRIMARY KEY	(order_id, product_id)
 );
 
-create table orders (
-  id		serial primary key,
-  customer_id	integer references customer(id),
+CREATE TABLE orders (
+	id		SERIAL PRIMARY KEY,
+	customer_id	INT REFERENCES customer(id),
 );
 
 \c postgres

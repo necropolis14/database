@@ -1,28 +1,28 @@
-drop database db;
-create database db;
+DROP DATABASE db;
+CREATE DATABASE db;
 
 \c db
 
-create table authors (
-  id	serial primary key,
-  name	varchar(64)
+CREATE TABLE authors (
+	id	SERIAL PRIMARY KEY,
+	name	VARCHAR(64)
 );
 
-create table books (
-  id		serial primary key,
-  title		varchar(64),
-  author_id	int references authors(id),
-  year		int
+CREATE TABLE books (
+	id		SERIAL PRIMARY KEY,
+	title		VARCHAR(64),
+	author_id	INT REFERENCES authors(id),
+	year		INT
 );
 
-alter table books add column genre type varchar(100);
-alter table books add check (year <= 2025);
+ALTER TABLE books ADD COLUMN genre TYPE VARCHAR(100);
+ALTER TABLE books ADD CHECK (year <= 2025);
 
-alter table books drop column author_id;
-create table book_authors (
-  book_id	int references books(id),
-  author_id	int references authors(id),
-  primary key	(book_id, author_id)
+ALTER TABLE books DROP COLUMN author_id;
+CREATE TABLE book_authors (
+	book_id	INT REFERENCES books(id),
+	author_id	INT REFERENCES authors(id),
+	PRIMARY KEY	(book_id, author_id)
 );
 
 \c postgres

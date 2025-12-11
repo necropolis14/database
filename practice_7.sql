@@ -1,23 +1,23 @@
 \c db
 
-select * from students;
+SELECT * FROM students;
 
-select courses.name, courses.credits from courses;
+SELECT courses.name, courses.credits FROM courses;
 
-select * from students where year = 2021;
+SELECT * FROM students WHERE year = 2021;
 
-select * from courses where credits > 4;
+SELECT * FROM courses WHERE credits > 4;
 
-select * from students where email = 'elena.kuznetsova@newmail.com';
+SELECT * FROM students WHERE email = 'elena.kuznetsova@newmail.com';
 
-select * from students where name like '%Дмитрий%';
+SELECT * FROM students WHERE name LIKE '%Дмитрий%';
 
-select * from enrollments where grade is null;
+SELECT * FROM enrollments WHERE grade IS NULL;
 
-select * from courses order by name;
+SELECT * FROM courses ORDER BY name;
 
-select * from students order by year, name;
+SELECT * FROM students ORDER BY year, name;
 
-select * from students order by year desc limit 2;
+SELECT * FROM students ORDER BY year DESC LIMIT 2;
 
 \c postgres
